@@ -1,0 +1,4 @@
+dao\calc.class
+com\mycompany\calculadorajfs\JAXRSConfiguration.class
+dao\calculadora.class
+com\mycompany\calculadorajfs\resources\JavaEE8Resource.class

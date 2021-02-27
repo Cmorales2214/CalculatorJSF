@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./plantilla/plantilla.xhtml">
+
+            <ui:define name="content">
+                 <h:form class="container">
+                    
+                     <div class="form-group-row">
+                     <h:outputLabel value="Numero 1" for="num01" class="col-sm-1 col-form-label"/>
+                     <div class="col-sm-4">   
+                        <h:inputText requiredMessage="Campo obligatorio" 
+                        value="#{calc.num01}" class="form-control"
+                                         validatorMessage="Debe ingresar solamente dígitos">
+                             <f:validateDoubleRange minimum="1" maximum="3"/>
+                        </h:inputText>
+                      <h:message for="Numero" class="text-danger"/>
+                     </div>
+                     </div>
+                     
+                     <div class="form-group-row">
+                     <h:outputLabel value="Numero 2" for="num02" class="col-sm-1 col-form-label"/>
+                     <div class="col-sm-4">
+                      <h:inputText required="true" requiredMessage="Campo obligatorio"
+                      value="#{calc.num02}" class="form-control"
+                                         validatorMessage="Debe ingresar solamente dígitos"> 
+                            <f:validateDoubleRange minimum="1" maximum="3"/>
+                      </h:inputText>
+                     <h:message for="Numero" class="text-danger"/>
+                     </div>
+                     </div>     
+                     
+             <div class="form-group-row">
+                 <h:outputLabel value="Operacion" for="opcion" class="col-sm-1 col-form-label"/>
+                 <div class="col-sm-4">
+                 <h:selectOneMenu value="#{calc.opcion}">
+                     <f:selectItem itemValue="Sumar" itemLabel="Sumar"/>
+                     <f:selectItem itemValue="Multiplicar" itemLabel="Multiplicar"/>
+                     <f:selectItem itemValue="Restar" itemLabel="Restar"/>
+                     <f:selectItem itemValue="Dividir" itemLabel="Dividir"/>             
+                 </h:selectOneMenu>
+                 </div>
+                 </div> 
+                     
+                     <div class="form-group-row">
+                          <div class="col-sm-4">
+                         <h:commandButton value="Calcular" action="#{calc.calcular()}"/> 
+                     </div>
+                    </div>
+             </h:form> 
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
